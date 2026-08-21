@@ -1,0 +1,32 @@
+name: Test
+
+on:
+  # No paths filter: history here is amended and force pushed, so GitHub cannot
+  # diff against the previous head and a filter would skip the run entirely.
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Lint the scripts
+        shell: bash
+        run: shellcheck scripts/*.sh
+
+      - name: Run the tests
+        shell: bash
+        run: ./scripts/trim-svg_test.sh
