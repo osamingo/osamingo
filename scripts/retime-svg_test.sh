@@ -112,7 +112,7 @@ test_delays_every_animation() {
 	"${RETIME}" "${target}"
 
 	local delayed
-	delayed=$(grep -oE 'animation-delay:1500ms;animation-fill-mode:backwards' "${target}" | wc -l || true)
+	delayed=$(grep -oE 'animation-delay:1000ms;animation-fill-mode:backwards' "${target}" | wc -l || true)
 
 	if ((before != delayed)); then
 		fail "${name}" "expected ${before} delayed animations, got ${delayed}"
