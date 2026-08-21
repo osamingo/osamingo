@@ -21,7 +21,7 @@ readonly SLOWDOWN_DEN=2
 # delay to the first iteration only, so the loop keeps running without a pause
 # afterwards. `backwards` makes the wait show the first frame instead of the
 # state the elements would be in with no animation at all.
-readonly START_DELAY_MS=2000
+readonly START_DELAY_MS=1500
 
 err() {
 	printf '%s: %s\n' "${0##*/}" "$*" >&2
