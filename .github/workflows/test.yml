@@ -29,4 +29,6 @@ jobs:
 
       - name: Run the tests
         shell: bash
-        run: ./scripts/trim-svg_test.sh
+        run: |
+          ./scripts/trim-svg_test.sh
+          ./scripts/retime-svg_test.sh
